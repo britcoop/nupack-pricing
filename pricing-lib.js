@@ -13,30 +13,38 @@ function calcMarkUp(priceData){
 	}
 
 	//fixed markup of 5%
-	var fixedMarkUp = priceData.basePrice + priceData.basePrice * 0.05;
-	//total price count
-	var totalPrice = fixedMarkUp;
+	var flatTotal = priceData.basePrice;
+	var fixedMarkUp = priceData.basePrice * 0.05;
+	flatTotal += fixedMarkUp;
+
+	//for each worker, add 1.2% markup
+	var numPeopleAdj = flatTotal * 0.012;
+	numPeopleAdj = numPeopleAdj * priceData.numberOfPeople;
+
 
 	//markup for pharmaceuticals 7.5%
 	if (priceData.materialType === "pharma") {
-		markUpPrice = priceData.basePrice + priceData.basePrice * 0.075;
-		totalPrice = markUpPrice;
+		markUpPrice = flatTotal + flatTotal * 0.075;
 	}
+
 	//markup for food 13%
 	else if (priceData.materialType === "food") {
-		markUpPrice = priceData.basePrice + priceData.basePrice * 0.13;
-		totalPrice = markUpPrice;
+		markUpPrice = flatTotal + flatTotal * 0.13;
+
 	}
 	//markup for electronics 2%
 	else if (priceData.electronics === "electronics") {
-		markUpPrice = priceData.basePrice + priceData.basePrice * 0.02;
-		totalPrice = markUpPrice;
+		markUpPrice = flatTotal + flatTotal * 0.02;
+
 	}
 	else {
 		markUpPrice = basePrice;
 	}
 
-	totalPrice = markUpPrice.toFixed(2);
+	totalPrice = numPeopleAdj + markUpPrice;
+
+
+	totalPrice = totalPrice.toFixed(2);
 	priceData.basePrice = priceData.basePrice.toFixed(2);
 
 	//output
@@ -47,5 +55,3 @@ function calcMarkUp(priceData){
 
 	return output;
 }
-
-
