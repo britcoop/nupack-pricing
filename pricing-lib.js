@@ -23,7 +23,7 @@ function calcMarkUp(priceData){
 
 
 	//markup for pharmaceuticals 7.5%
-	if (priceData.materialType === "pharma") {
+	if (priceData.materialType === "drugs") {
 		markUpPrice = flatTotal + flatTotal * 0.075;
 	}
 
@@ -38,14 +38,20 @@ function calcMarkUp(priceData){
 
 	}
 	else {
-		markUpPrice = basePrice;
+		markUpPrice = flatTotal;
+	}
+
+	//format double to currency
+	function moneyFormat(n, currency) {
+		return currency + " " + n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
 	}
 
 	totalPrice = numPeopleAdj + markUpPrice;
+	totalPrice = moneyFormat(totalPrice, "$");
+	console.log(totalPrice);
 
-
-	totalPrice = totalPrice.toFixed(2);
-	priceData.basePrice = priceData.basePrice.toFixed(2);
+	priceData.basePrice = moneyFormat(priceData.basePrice, "$");
+	console.log(priceData.basePrice);
 
 	//output
 	output += "Example " + priceData.exampleNum + ": <br>";
