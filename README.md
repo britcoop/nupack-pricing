@@ -29,7 +29,6 @@ Open nulogy.html in your text editor to access the code, then open this file in 
 
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
-## Contributing
 
 ## Versioning
 
