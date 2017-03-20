@@ -13,31 +13,51 @@ function calcMarkUp(priceData){
 	}
 
 	//fixed markup of 5%
-	priceData.basePrice = priceData.basePrice + priceData.basePrice * 0.05;
+	var flatTotal = priceData.basePrice;
+	var fixedMarkUp = priceData.basePrice * 0.05;
+	flatTotal += fixedMarkUp;
+
+	//for each worker, add 1.2% markup
+	var numPeopleAdj = flatTotal * 0.012;
+	numPeopleAdj = numPeopleAdj * priceData.numberOfPeople;
+
 
 	//markup for pharmaceuticals 7.5%
-	if (priceData.materialType === "pharma") {
-		markUpPrice = priceData.basePrice + priceData.basePrice * 0.075;
+	if (priceData.materialType === "drugs") {
+		markUpPrice = flatTotal + flatTotal * 0.075;
 	}
+
 	//markup for food 13%
 	else if (priceData.materialType === "food") {
-		markUpPrice = priceData.basePrice + priceData.basePrice * 0.13;
+		markUpPrice = flatTotal + flatTotal * 0.13;
+
 	}
 	//markup for electronics 2%
 	else if (priceData.electronics === "electronics") {
-		markUpPrice = bpriceData.basePrice + priceData.basePrice * 0.02;
+		markUpPrice = flatTotal + flatTotal * 0.02;
+
 	}
 	else {
-		markUpPrice = basePrice;
+		markUpPrice = flatTotal;
 	}
+
+	//format double to currency
+	function moneyFormat(n, currency) {
+		return currency + " " + n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+	}
+
+	totalPrice = numPeopleAdj + markUpPrice;
+	totalPrice = moneyFormat(totalPrice, "$");
+	console.log(totalPrice);
+
+	priceData.basePrice = moneyFormat(priceData.basePrice, "$");
+	console.log(priceData.basePrice);
 
 	//output
 	output += "Example " + priceData.exampleNum + ": <br>";
 	output += "-------------- <br>";
 	output += "Input: " + priceData.basePrice + ", " + priceData.numberOfPeople + " " + personPlural + ', ' + priceData.materialType + "<br>";
-	output += "Output: " + markUpPrice;
+	output += "Output: " + totalPrice;
 
 	return output;
 }
-
-
