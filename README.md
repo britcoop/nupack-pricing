@@ -7,8 +7,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-Text Editor (e.g., Sublime Text)
-Google Chrome
+Text Editor (e.g., Sublime Text), Web Browser (e.g., Google Chrome)
 
 ### Installing
 
@@ -16,8 +15,10 @@ Download or clone the project from this publicly accessible repository: https://
 
 ## Running the tests
 
-For testing from the command line, use the following command: 
+For testing from the command line, use the following command (be sure to replace 'path' with the actual path to the file): 
 "open path/nulogy.html"
+
+To test: Adjust the data in the priceData object by entering test values. For example, priceData.materialType = "books";
 
 Testing will verify that the pricing calculator is correctly adjusting the packaging markup costs.
 
