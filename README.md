@@ -19,7 +19,7 @@ Download or clone the project from this publicly accessible repository: https://
 For testing from the command line, use the following command: 
 "open path/nulogy.html"
 
-### Testing will verify that the pricing calculator is correctly adjusting the packaging markup costs.
+Testing will verify that the pricing calculator is correctly adjusting the packaging markup costs.
 
 ## Deployment
 
