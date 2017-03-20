@@ -1,5 +1,9 @@
-I enjoyed doing this exercise. I chose to use JavaScript mostly because I'm the most familiar with JS. I'd love to redo the
-exercise in Ruby as this would be a valuable learning opportunity as I have quite an interest in learning Ruby. I did Java
-programming in school, however most of my professional experience is with client-side languages so Ruby would be of particular
-value to me!
+##Exercise Reflection
+
+I enjoyed doing this exercise. I chose to complete the task using client-side JavaScript, however I'd love to redo the
+exercise in Ruby as this would be a valuable learning opportunity to satisfy my curiosity about Ruby. Additionally, had I
+chosen a server side language for this task, the user could've tested different values directly from the command line. 
+Although I did some Java programming while in school, most of my professional experience is with client-side languages. I'm
+very much looking forward to expanding my knowledge about server-side programming. I plan to do this on my own but also hope
+for this opportunity in my next position.
  
